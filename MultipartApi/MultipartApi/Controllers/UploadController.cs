@@ -46,9 +46,11 @@ namespace MultipartApi.Controllers
                 var task = Request.Content.ReadAsMultipartAsync(provider).
                     ContinueWith<HttpResponseMessage>(t =>
                     {
+ 
+
                         foreach (var key in provider.Contents)
                         {
-                            
+                            Console.WriteLine(key.Headers.ContentDisposition);
                         }
 
                         // This illustrates how to get the file names.
